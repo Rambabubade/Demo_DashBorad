@@ -45,34 +45,34 @@ const Dashboard = () => {
       icon: <HourglassEmptyIcon />,
       link: "/pendingExperiences",
     },
-        {
-      title: "50",
-      subtitle: "All Experiences",
-      progress: 1.0,
-      icon: <ReceiptLongIcon />,
-      link: "/allExperiences",
-    },
-    {
-      title: "10",
-      subtitle: "New Experiences",
-      progress: 0.2,
-      icon: <NewReleasesIcon />,
-      link: "/newExperiences",
-    },
-    {
-      title: "30",
-      subtitle: "Resolved Experiences",
-      progress: 0.6,
-      icon: <CheckCircleIcon />,
-      link: "/resolvedExperiences",
-    },
-    {
-      title: "10",
-      subtitle: "Pending Experiences",
-      progress: 0.2,
-      icon: <HourglassEmptyIcon />,
-      link: "/pendingExperiences",
-    },
+    //     {
+    //   title: "50",
+    //   subtitle: "All Experiences",
+    //   progress: 1.0,
+    //   icon: <ReceiptLongIcon />,
+    //   link: "/allExperiences",
+    // },
+    // {
+    //   title: "10",
+    //   subtitle: "New Experiences",
+    //   progress: 0.2,
+    //   icon: <NewReleasesIcon />,
+    //   link: "/newExperiences",
+    // },
+    // {
+    //   title: "30",
+    //   subtitle: "Resolved Experiences",
+    //   progress: 0.6,
+    //   icon: <CheckCircleIcon />,
+    //   link: "/resolvedExperiences",
+    // },
+    // {
+    //   title: "10",
+    //   subtitle: "Pending Experiences",
+    //   progress: 0.2,
+    //   icon: <HourglassEmptyIcon />,
+    //   link: "/pendingExperiences",
+    // },
   ];
 
   return (
