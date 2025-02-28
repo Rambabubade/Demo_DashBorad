@@ -12,10 +12,9 @@ import {
   TableRow,
   Paper,
   Select,
-  Typography,
   useTheme
 } from "@mui/material";
-import { Download, Upload, Add } from "@mui/icons-material";
+import { Add } from "@mui/icons-material";
 import { tokens } from "../../theme";
 
 // Sample Ticket Data
