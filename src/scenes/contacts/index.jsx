@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
@@ -6,6 +6,8 @@ import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
 
 const Contacts = () => {
   const navigate = useNavigate();
@@ -58,10 +60,10 @@ const Contacts = () => {
   return (
     <Box m="20px">
       <Header
-        title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
+        title="Customer Relationship Managers"
+        subtitle="List of Customer Relationship Managers"
       />
-            <Button
+      <Button
         variant="contained"
         color="primary"
         onClick={() => navigate("/form")}
@@ -84,6 +86,7 @@ const Contacts = () => {
       >
         Add Customer Relationship Manager
       </Button>
+
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -116,6 +119,19 @@ const Contacts = () => {
           },
         }}
       >
+
+<Box
+        display="flex"
+        backgroundColor={colors.primary[400]}
+        borderRadius="3px"
+        // width="100px"
+      >
+        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
+        <IconButton type="button" sx={{ p: 1 }}>
+          <SearchIcon />
+        </IconButton>
+     
+      </Box>
         <DataGrid
           rows={mockDataContacts}
           columns={columns}

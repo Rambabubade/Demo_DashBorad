@@ -6,20 +6,13 @@ import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
-import React from "react";
-import InputBase from "@mui/material/InputBase";
-// import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-// import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-// import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined";
-// import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-// import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
 
-const Team = () => {
+const Crm = () => {
   const navigate = useNavigate();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  // const colorMode = useContext(ColorModeContext);
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
@@ -31,9 +24,9 @@ const Team = () => {
       cellClassName: "name-column--cell",
     },
     {
-      field: "designation",
-      headerName: "Designation",
-      // type: "number",
+      field: "age",
+      headerName: "Age",
+      type: "number",
       headerAlign: "left",
       align: "left",
     },
@@ -67,15 +60,13 @@ const Team = () => {
   return (
     <Box m="20px">
       <Header
-        title="Customer Managers"
-        subtitle="List of Customer Managers"
+        title="Customer Relationship Managers"
+        subtitle="List of Customer Relationship Managers"
       />
-
-
-            <Button
+      <Button
         variant="contained"
         color="primary"
-        onClick={() => navigate("/form")}
+        onClick={() => navigate("/crmform")}
         sx={{
           backgroundColor: "#6870fa",
           color: "#fff",
@@ -93,9 +84,8 @@ const Team = () => {
           },
         }}
       >
-        Add Customer Manager
+        Add Customer Relationship Manager
       </Button>
-
 
       <Box
         m="40px 0 0 0"
@@ -128,10 +118,9 @@ const Team = () => {
             color: `${colors.grey[100]} !important`,
           },
         }}
-
-
       >
-        <Box
+
+<Box
         display="flex"
         backgroundColor={colors.primary[400]}
         borderRadius="3px"
@@ -148,11 +137,9 @@ const Team = () => {
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
-
-
       </Box>
     </Box>
   );
 };
 
-export default Team;
+export default Crm;

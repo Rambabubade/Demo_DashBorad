@@ -25,13 +25,17 @@ import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  // Extract text for selection logic
+  const titleText = typeof title === "string" ? title : "Customer Relationship Manager";
+
   return (
     <MenuItem
-      active={selected === title}
+      active={selected === titleText}
       style={{
-        color: colors.grey[100],
+        color: selected === titleText ? "blue" : colors.grey[100], // Apply blue when selected
       }}
-      onClick={() => setSelected(title)}
+      onClick={() => setSelected(titleText)}
       icon={icon}
     >
       <Typography>{title}</Typography>
@@ -40,10 +44,11 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
   );
 };
 
+
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [selected, setSelected] = useState("Dashboard");
 
   return (
@@ -51,6 +56,7 @@ const Sidebar = () => {
       sx={{
         "& .pro-sidebar-inner": {
           background: `${colors.primary[400]} !important`,
+          // width: isCollapsed ? "80px" : "3px", // Increase width here
         },
         "& .pro-icon-wrapper": {
           backgroundColor: "transparent !important",
@@ -75,6 +81,7 @@ const Sidebar = () => {
             style={{
               margin: "10px 0 20px 0",
               color: colors.grey[100],
+              // width:"300px"
             }}
           >
             {!isCollapsed && (
@@ -130,44 +137,48 @@ const Sidebar = () => {
               setSelected={setSelected}
             />
 
-            <Typography
+            {/* <Typography
               variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Data
-            </Typography>
+            </Typography> */}
             <Item
               title="Customer Manager"
-              to="/team"
+              to="/cm"
               icon={<PeopleAltOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title={
-                <span>Customer Relationship <br /> Manager</span>
+                <Typography>
+                  Customer Relationship <br /> Manager
+                </Typography>
               }
-              to="/contacts"
+              to="/crm"
               icon={<HandshakeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
+
+ 
             <Item
               title="Head of the Business"
-              to="/invoices"
+              to="/hob"
               icon={<BusinessOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
 
-            <Typography
+            {/* <Typography
               variant="h6"
               color={colors.grey[300]}
               sx={{ m: "15px 0 5px 20px" }}
             >
               Pages
-            </Typography>
+            </Typography> */}
             {/* <Item
               title="Profile Form"
               to="/form"

@@ -10,9 +10,70 @@ import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import React from "react";
+import { Link } from "react-router-dom";
+
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode); // Get theme colors
+
+  const data = [
+    {
+      title: "50",
+      subtitle: "All Experiences",
+      progress: 1.0,
+      icon: <ReceiptLongIcon />,
+      link: "/allExperiences",
+    },
+    {
+      title: "10",
+      subtitle: "New Experiences",
+      progress: 0.2,
+      icon: <NewReleasesIcon />,
+      link: "/newExperiences",
+    },
+    {
+      title: "30",
+      subtitle: "Resolved Experiences",
+      progress: 0.6,
+      icon: <CheckCircleIcon />,
+      link: "/resolvedExperiences",
+    },
+    {
+      title: "10",
+      subtitle: "Pending Experiences",
+      progress: 0.2,
+      icon: <HourglassEmptyIcon />,
+      link: "/pendingExperiences",
+    },
+        {
+      title: "50",
+      subtitle: "All Experiences",
+      progress: 1.0,
+      icon: <ReceiptLongIcon />,
+      link: "/allExperiences",
+    },
+    {
+      title: "10",
+      subtitle: "New Experiences",
+      progress: 0.2,
+      icon: <NewReleasesIcon />,
+      link: "/newExperiences",
+    },
+    {
+      title: "30",
+      subtitle: "Resolved Experiences",
+      progress: 0.6,
+      icon: <CheckCircleIcon />,
+      link: "/resolvedExperiences",
+    },
+    {
+      title: "10",
+      subtitle: "Pending Experiences",
+      progress: 0.2,
+      icon: <HourglassEmptyIcon />,
+      link: "/pendingExperiences",
+    },
+  ];
 
   return (
     <Box m={2}>
@@ -39,42 +100,53 @@ const Dashboard = () => {
         </Grid>
       </Box>
 
-      {/* TICKET STATISTICS (FIXED CIRCLE INSIDE BOX) */}
+      {/* EXPERIENCE STATISTICS (FIXED CIRCLE INSIDE BOX) */}
       <Grid container spacing={2}>
-        {[
-          { title: "50", subtitle: "All Tickets", progress: 0.75, icon: <ReceiptLongIcon /> },
-          { title: "10", subtitle: "New Tickets", progress: 0.50, icon: <NewReleasesIcon /> },
-          { title: "30", subtitle: "Resolved", progress: 0.30, icon: <CheckCircleIcon /> },
-          { title: "10", subtitle: "Pending", progress: 0.80, icon: <HourglassEmptyIcon /> },
-        ].map((item, index) => (
+        {data.map((item, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
-            <Box 
-              p={2} 
-              borderRadius={2} 
-              sx={{ bgcolor: colors.primary[400], minHeight: "140px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden" }}
-            > 
-              <StatBox
-                title={item.title}
-                subtitle={item.subtitle}
-                progress={item.progress}
-                icon={React.cloneElement(item.icon, {
-                  fontSize: "large",
-                  sx: { color: colors.greenAccent[600] },
-                })}
-              />
-            </Box>
+            <Link to={item.link} style={{ textDecoration: "none" }}>
+              <Box
+                p={2}
+                borderRadius={2}
+                sx={{
+                  bgcolor: colors.primary[400],
+                  minHeight: "140px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  transition: "transform 0.2s",
+                  "&:hover": { transform: "scale(1.05)" },
+                }}
+              >
+                <StatBox
+                  title={item.title}
+                  subtitle={item.subtitle}
+                  progress={item.progress}
+                  icon={React.cloneElement(item.icon, {
+                    fontSize: "large",
+                    sx: { color: colors.greenAccent[600] },
+                  })}
+                />
+              </Box>
+            </Link>
           </Grid>
         ))}
       </Grid>
 
-      {/* REVENUE & SALES CHARTS */}
+      {/* REVENUE & EXPERIENCE CHARTS */}
       <Grid container spacing={2} mt={3}>
         <Grid item xs={12} md={8}>
           <Box p={2} borderRadius={2} sx={{ bgcolor: colors.primary[400] }}>
             <Typography variant="h6" color={colors.grey[100]} mb={1}>
               Revenue Generated
             </Typography>
-            <Typography variant="h4" fontWeight="bold" color={colors.greenAccent[500]}>
+            <Typography
+              variant="h4"
+              fontWeight="bold"
+              color={colors.greenAccent[500]}
+            >
               $59,342.32
             </Typography>
             <Box height="250px">
@@ -86,7 +158,7 @@ const Dashboard = () => {
         <Grid item xs={12} md={4}>
           <Box p={2} borderRadius={2} sx={{ bgcolor: colors.primary[400] }}>
             <Typography variant="h6" color={colors.grey[100]} mb={1}>
-              Sales Quantity
+              Experience Quantity
             </Typography>
             <Box height="250px">
               <BarChart isDashboard={true} />
