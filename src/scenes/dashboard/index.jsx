@@ -5,8 +5,9 @@ import NewReleasesIcon from "@mui/icons-material/NewReleases";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import HourglassEmptyIcon from "@mui/icons-material/HourglassEmpty";
 import Header from "../../components/Header";
-import LineChart from "../../components/LineChart";
-import BarChart from "../../components/BarChart";
+// import LineChart from "../../components/LineChart";
+// import BarChart from "../../components/BarChart";
+import PieChart from "../../components/PieChart";
 import StatBox from "../../components/StatBox";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import React from "react";
@@ -137,7 +138,7 @@ const Dashboard = () => {
 
       {/* REVENUE & EXPERIENCE CHARTS */}
       <Grid container spacing={2} mt={3}>
-        <Grid item xs={12} md={8}>
+        {/* <Grid item xs={12} md={8}>
           <Box p={2} borderRadius={2} sx={{ bgcolor: colors.primary[400] }}>
             <Typography variant="h6" color={colors.grey[100]} mb={1}>
               Revenue Generated
@@ -153,7 +154,18 @@ const Dashboard = () => {
               <LineChart isDashboard={true} />
             </Box>
           </Box>
-        </Grid>
+           </Grid> */}
+
+        {/* <Grid item xs={12} md={4}>
+          <Box p={2} borderRadius={2} sx={{ bgcolor: colors.primary[400] }}>
+            <Typography variant="h6" color={colors.grey[100]} mb={1}>
+              Experience Quantity
+            </Typography>
+            <Box height="250px">
+              <BarChart isDashboard={true} />
+            </Box>
+          </Box>
+        </Grid> */}
 
         <Grid item xs={12} md={4}>
           <Box p={2} borderRadius={2} sx={{ bgcolor: colors.primary[400] }}>
@@ -161,7 +173,7 @@ const Dashboard = () => {
               Experience Quantity
             </Typography>
             <Box height="250px">
-              <BarChart isDashboard={true} />
+              <PieChart isDashboard={true} />
             </Box>
           </Box>
         </Grid>
